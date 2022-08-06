@@ -10,9 +10,12 @@ public class containsDuplicate {
     public static void main(String[] args) throws FileNotFoundException {
         File file = new File("/home/praneeth/Documents/LearningJava/input.txt");
         Scanner sc = new Scanner(file);
-        String str1= sc.nextLine();
-        String str2= sc.nextLine();
-        isAnagram(str1,str2);
+        int size=sc.nextInt();
+        int[] arr =new int[size];
+        for(int i=0;i<size;i++){
+            arr[i]=sc.nextInt();
+        }
+        containsDuplicate(arr);
     }
     public static boolean containsDuplicate(int[] arr){
         HashSet<Integer> hashset=new HashSet();
@@ -22,11 +25,6 @@ public class containsDuplicate {
             }
             hashset.add(arr[i]);
         }
-        return false;
-    }
-
-    public static boolean isAnagram(String s,String t){
-
         return false;
     }
 }
