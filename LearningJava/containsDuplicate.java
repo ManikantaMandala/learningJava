@@ -1,10 +1,7 @@
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.lang.reflect.Method;
-import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Scanner;
-import java.util.function.Function;
 
 public class containsDuplicate {
     public static void main(String[] args) throws FileNotFoundException {
@@ -15,10 +12,11 @@ public class containsDuplicate {
         for(int i=0;i<size;i++){
             arr[i]=sc.nextInt();
         }
-        containsDuplicate(arr);
+        containsDuplicateMethod(arr);
+        sc.close();
     }
-    public static boolean containsDuplicate(int[] arr){
-        HashSet<Integer> hashset=new HashSet();
+    public static boolean containsDuplicateMethod(int[] arr){
+        HashSet<Integer> hashset=new HashSet<Integer>();
         for(int i=0;i<arr.length;i++){
             if(hashset.contains(arr[i])){
                 return true;

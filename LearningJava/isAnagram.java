@@ -1,4 +1,5 @@
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.util.HashMap;
 import java.util.Scanner;
 
@@ -8,9 +9,10 @@ public class isAnagram {
         Scanner sc = new Scanner(file);
         String str1= sc.nextLine();
         String str2= sc.nextLine();
-        isAnagram(str1,str2);
+        isAnagramMethod(str1,str2);
+        sc.close();
     }
-    public static boolean isAnagram(String s,String t){
+    public static boolean isAnagramMethod(String s,String t){
         HashMap<Character,Integer> anagramMap = new HashMap<>();
         if(s.length()!=t.length()){
             return false;
