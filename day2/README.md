@@ -7,9 +7,9 @@ Today, We have learnt about some basic operations that we can be preforming in
 the main CLI project, and There implementation.
 
 Today's assignments:
-    1. Create a function which returns the products by searching through place
-    2. Create a function which returns the products which are out of warranty
-    3. Try to implement Stream API in today's operations.
+1. Create a function which returns the products by searching through place
+2. Create a function which returns the products which are out of warranty
+3. Try to implement Stream API in today's operations.
     
 ### 1. Search by Place:
 
