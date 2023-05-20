@@ -22,14 +22,11 @@ class Solution{
     public ArrayList<ArrayList<Integer>> pascalTriangleCreation(int height){
         // Create a 2D ArrayList to store the triangle
         ArrayList<ArrayList<Integer>> pascalTriangle = new ArrayList<>();
-
         // Generate the triangle
         for (int row = 0; row < height; row++) {
             ArrayList<Integer> currentRow = new ArrayList<>();
-            
             // The first and last elements of each row are 1
             currentRow.add(1);
-            
             if (row > 0) {
                 ArrayList<Integer> previousRow = pascalTriangle.get(row - 1);
                 for (int col = 1; col < row; col++) {
@@ -38,7 +35,6 @@ class Solution{
                 }
                 currentRow.add(1);
             }
-            
             pascalTriangle.add(currentRow);
         }
         return pascalTriangle;

@@ -20,7 +20,11 @@ public class pascalsTriangleMemoization{
 }
 class Solution{
     public ArrayList<ArrayList<Integer>> usingMemoization(int ROWS){
-        /* DP State: 
+
+        /* Optimal substructure - yes
+         * Optimal subproblem - yes
+         *
+         * DP State: 
          * We want to add the previous rows adjecent values
          *
          * DP statement
@@ -35,6 +39,7 @@ class Solution{
          * if j ==0 || j == currentRowSize-1 => return 1;
          */
 
+        //Creation of dp ArrayList
         ArrayList<ArrayList<Integer>> dp = new ArrayList<>();
         for(int i=0;i<ROWS;i++){
             ArrayList<Integer> currentRow = new ArrayList<>();
@@ -47,6 +52,8 @@ class Solution{
             }
             dp.add(currentRow);
         }
+
+        //Getting values
         for(int i=0;i<ROWS;i++){
             for(int j=0;j<dp.get(i).size();j++){
                 int currentValue = value(dp, i, j, dp.get(i).size());
@@ -56,9 +63,11 @@ class Solution{
         return dp;
     }
     public int value(ArrayList<ArrayList<Integer>> dp, int i, int j, int jSize){
+        //Base case:
         if(j==0|| j==jSize-1){
             return 1;
         }
+        //DP Statement:
         if(dp.get(i).get(j)==-1){
             int upperLeftNode = value(dp,i-1,j-1,jSize-1);
             int upperRightNode = value(dp,i-1,j,jSize-1);
