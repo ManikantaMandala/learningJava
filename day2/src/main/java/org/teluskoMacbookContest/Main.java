@@ -1,6 +1,4 @@
 package org.teluskoMacbookContest;
-import java.time.Year;
-import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
@@ -25,40 +23,31 @@ public class Main {
         service.addProduct(new Product("Lenovo Mouse", "Mouse", "Black Drawer", 2022));
         service.addProduct(new Product("BlackBeast", "Computer", "White Table", 2020));
 
-        //        List<Product> products = service.getAllProducts();
-        //        for(Product p : products){
-        //            System.out.println(p);
-        //        }
-        //        service.getAllProductsUsingStream().forEach(System.out::println);
+        // List<Product> products = service.getAllProducts();
+        //for(Product p : products){ System.out.println(p); }
+        service.getAllProductsUsingStream().forEach(System.out::println);
 
 
-        //        System.out.println("==============================================");
-        //        System.out.println("a Particular product");
-        //        Product p = service.getProduct("Logi Mouse");
-        //        System.out.println(p);
-        //        service.getProductUsingStreams("Logi Mouse").forEach(System.out::println);
+        System.out.println("==============================================");
+        System.out.println("a Particular product");
+        // Product p = service.getProduct("Logi Mouse");
+        //System.out.println(p);
+        service.getProductUsingStreams("Logi Mouse").forEach(System.out::println);
 
-        /*
         System.out.println("==============================================");
         System.out.println("a Particular text");
-        List<Product> prods = service.getProductWithText("black");
-        for(Product product : prods){ System.out.println(product); }
+        // List<Product> prods = service.getProductWithText("black");
+        //for(Product product : prods){ System.out.println(product); }
         service.getProductWithTextUsingStreams("black").forEach(System.out::println);
-        */
 
-        /*
         System.out.println("==============================================");
         System.out.println("Search by place");
-        System.out.println(service.searchByPlace("White Table"));
+        // System.out.println(service.searchByPlace("White Table"));
         service.searchByPlaceUsingStreams("White Table").forEach(System.out::println);
-        */
 
-        /*
         System.out.println("==============================================");
         System.out.println("Search products out of warranty");
-        System.out.println(service.searchOutOfWarranty());
+        // System.out.println(service.searchOutOfWarranty());
         service.searchOutOfWarrantyExpiryUsingStreams().forEach(System.out::println);
-        */
-
     }
 }
