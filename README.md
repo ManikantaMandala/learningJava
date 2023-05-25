@@ -56,5 +56,5 @@ Eg: {ElementType.TYPE, ElementType.CONSTRUCTOR, ElementType.FIELD}
 This type of Target will work for all the 3 cases: class, constructor, fields
 and Method
 
-The code implementation in done in learningBuiltInAnnotation.java and 
-learningCustomAnnotation.java
+The code implementation in done in [Built-in Annotation](./learningBuiltInAnnotation.java) and 
+[Custom Annotations](./learningCustomAnnotation.java)

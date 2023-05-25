@@ -36,7 +36,7 @@ class MacBook extends Laptop{
     // it is present then it won't show error else it shows
     // By this we can say the RetentionPolicy is set to SOURCE
     // And Target is Method
-    public void keyboard(String input){
+    public void keyBoard(String input){
         System.out.println(" I display the input: "+ input + " on screen");
         screen(input);
     }

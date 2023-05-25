@@ -82,7 +82,7 @@ class Virat{
     }
 }
 
-public class learningCustomAnnotation{
+public class learningAnnotation{
     public static void main(String arg[])  {
         try{
             Virat v = new Virat();
@@ -93,6 +93,7 @@ public class learningCustomAnnotation{
 
             Class c = v.getClass();
             Annotation an = c.getAnnotation(CricketPlayer.class);
+            //Getting age value without downcasting
             System.out.println(an.annotationType().getMethod("age").invoke(an));
             CricketPlayer cp = (CricketPlayer)an;
             System.out.println("Age of Virat: "+cp.age());
