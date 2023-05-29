@@ -13,6 +13,11 @@ target/
 .springBeans
 .sts4-cache
 
+###iTerm###
+.DS_Store
+./QuixApp/.DS_Store
+./QuixApp/src/.DS_Store
+
 ### IntelliJ IDEA ###
 .idea
 *.iws
