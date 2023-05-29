@@ -19,8 +19,4 @@ Explanations:
 
 The other implementation, To get all the URLs => This can be seen in first-react-app and shortURL directories.
 
-
-Here, I got CORS error I tried to debug it but I didn't suceeded.
-I will try Again! in the future.
-
 Okay bye!🙂
