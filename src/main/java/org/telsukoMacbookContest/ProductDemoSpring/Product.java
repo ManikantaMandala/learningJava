@@ -1,8 +1,20 @@
-package org.teluskoMacbookContest;
+package org.telsukoMacbookContest.ProductDemoSpring;
+
+import jakarta.persistence.*;
+
+@Entity
 public class Product {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int id;
+    @Column(name = "name")
     private String name;
+    @Column(name = "type")
     private String type;
+    @Column(name = "place")
     private String place;
+    @Column(name = "warranty")
     private int warranty;
 
     public Product() {
@@ -13,6 +25,14 @@ public class Product {
         this.type = type;
         this.place = place;
         this.warranty = warranty;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getName() {

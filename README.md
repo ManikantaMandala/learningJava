@@ -1,65 +1,55 @@
-## ProductDemo
+## Product Demo
+Today is the day 3 of Macbook Contest by Telusko.
+As said yesterday, We are creating a CLI Product Management application 
+project.
 
-This is a demo project conducted for Telusko's Macbook Contest. In this contest,
-we will create a CLI product management project.
+### The assignment:
+- Convert the yesterday's assignment to spring boot, Data JPA and 
+PostgreSQL as database
 
-Today, we have learnt about some basic operations that we can perform in 
-the main CLI project and their implementation.
+### Learnings:
+1. I got to know about the dependency injection with Spring Boot.
+A basic implementation of it.
+2. Basic understanding of Data JPA and its naming conversions.
 
-Today's assignments:
-1.Create a function that returns the products by searching through the place.
-2.Create a function that returns the products that are out of warranty.
-3.Try to implement the Stream API in today's operations.
+In today's assignment, I have implemented 
+1. Getting products by name
+2. Getting products by text which will be search in multiple columns 
+in database by ignoring the cases.
+3. Getting products by place 
+4. Getting products by warranty which are less than warranty value in 
+database.
 
-### 1.Search by Place:
+In all the operation we just need to change the function name, Return type
+and parameters in the ProductDB interface which extends JpaRepository.
 
-Using the equalsIgnoreCase() method from String, I tried to run a for each loop 
-for every product and compare. If I find they are equal, then I will add that 
-to a List object, which will be returned.
+Operation 1: 
+- function name:findByName()
+  - findBy : indicates that it's a query by specific criteria.
+  - Name : it's the name of the entity column I want to compare.
+- Return Type: List<Product> (Because multiple products can have same name)
+- parameters: String name (We need the name to check right!)
 
-### 2. Search products that are out of warranty:
+Operation 2:
+- function name: findByNameContainingIgnoreCaseOrTypeContainingIgnoreCaseOrPlaceContainingIgnoreCase()
+  - takes 3 parameters and performs case-insensitive partial match
+  search on name, type, place columns in database.
+- Return Type: List<Product> (Because multiple products can have same text in different columns)
+- parameters: String name, String type, String place
 
-Using the Year class from the java.time package, we can get the value of the 
-current year {Year.now().getValue()}. So I compared it with the warranty value 
-of the product. Then added to the List object that we will return.
+Operation 3:
+- function name: findByPlace()
+    - findBy : indicates that it's a query by specific criteria.
+    - Place : it's the place of the entity column I want to compare.
+- Return Type: List<Product> (Because multiple products can have same place)
+- parameters: String place (We need the place to check right!) 
 
-### 3. Implementation of Stream API:
+Operation 4:
+- function name: findByWarrantyLessThan()
+  - findBy : indicates that it's a query by specific criteria. 
+  - Warranty : is the name of the entity's column you want to compare. 
+  - LessThan : specifies the less than comparison operation.
+- Return Type: List<Product>
+- parameters: int year(current year)
 
-In this part of assignment, I tried to implement Stream APIs for 5 operations:
-1. get all products
-2. get product using Name value
-3. get products using text
-4. search by place
-5. search products that are out of warranty
-
-In operation 1, I used the stream() method on the products collection to convert 
-it into a stream and return it.
-
-Operations 2, 4 by logic are same, but there are some little differences. 
-So, for simplicity, I will try to explain the 4th operation using the Stream API:
-I have implemented it in the searchByPlaceUsingStreams() function.
-This function takes a place parameter as input. It uses the stream() method on 
-the products collection to convert it into a stream. Then it applies the filter
-operation on the stream, using a lambda expression 
-(x -> x.getPlace().equalsIgnoreCase(place)) to check if the place of each 
-Product object matches the specified place parameter (with case-insensitive).
-The filter operation creates a new Stream that contains only the product 
-objects with a place matching the specified value. 
-Finally, the method returns the resulting filtered stream of Product objects.
-
-All other operations are same as 4 but their lambda expression changes.
-
-In Operation 3, the lambda expression changed is
-(x->{return x.getName().toLowerCase().contains(text)||
-x.getType().toLowerCase().contains(text)||x.getPlace().toLowerCase().contains(text);}).
-In this lambda expression, we get various values of the stream, convert them 
-into lower-case and check if contains the text we want to search for.
-We use or operator to check for various values. If the searching text matches 
-then we filter it.
-
-In Operation 5, the lambda expression changed is 
-x->x.getWarranty()< Year.now().getValue(). As said before {Year.now().getValue()}
-will return current year value which is compared with warranty value of the stream 
-product. If the condition is satisfied then we filter it.
-
-
+All other things are learnt in yesterday's assignment
