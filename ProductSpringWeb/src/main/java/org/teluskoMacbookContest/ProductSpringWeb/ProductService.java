@@ -1,11 +1,9 @@
-package org.telsukoMacbookContest.ProductDemoSpring;
+package org.teluskoMacbookContest.ProductSpringWeb;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
 import java.time.Year;
-import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -17,8 +15,12 @@ public class ProductService {
         this.db=db;
     }
 
-    public void addProduct(Product p){
-        db.save(p);
+    public Product addProduct(Product p){
+        return db.save(p);
+    }
+
+    public void deleteProductById(int id){
+        db.deleteById(id);
     }
 
     public List<Product> getAllProducts(){

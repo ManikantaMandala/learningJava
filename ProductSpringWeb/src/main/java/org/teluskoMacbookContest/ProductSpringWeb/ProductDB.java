@@ -1,10 +1,9 @@
-package org.telsukoMacbookContest.ProductDemoSpring;
+package org.teluskoMacbookContest.ProductSpringWeb;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
-import java.util.stream.Stream;
 
 @Repository
 public interface ProductDB extends JpaRepository<Product, Integer> {
@@ -14,4 +13,7 @@ public interface ProductDB extends JpaRepository<Product, Integer> {
     List<Product> findByPlaceIgnoreCase(String place);
 
     List<Product> findByWarrantyLessThan(int year);
+
+    void deleteByName(String name);
+
 }

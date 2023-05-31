@@ -1,10 +1,10 @@
-package org.telsukoMacbookContest.ProductDemoSpring;
+package org.teluskoMacbookContest.ProductSpringWeb;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class ProductDemoSpringApplicationTests {
+class ProductSpringWebApplicationTests {
 
 	@Test
 	void contextLoads() {
