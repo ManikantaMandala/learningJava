@@ -60,7 +60,6 @@ public class ArrayBlockingQueueProducerConsumer {
             Thread.sleep(100);
             if (random.nextInt(10) == 0) {
                 Integer top = queue.take();
-
                 System.out.println("Taken value " + top + "; Queue size is " + queue.size());
             }
         }

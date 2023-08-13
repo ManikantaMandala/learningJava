@@ -1,0 +1,2 @@
+/home/babby/log.txt
+This log text is from /home/babby/Learn/learningJava/learningFileHandling/input.txt file!
