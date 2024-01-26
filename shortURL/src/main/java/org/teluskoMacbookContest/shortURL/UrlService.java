@@ -2,6 +2,7 @@ package org.teluskoMacbookContest.shortURL;
 
 import org.jetbrains.annotations.NotNull;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import java.util.HashMap;
@@ -15,10 +16,10 @@ public class UrlService {
     Random random = new Random();
     private final UrlDB db;
     @Autowired
-    public UrlService(UrlDB db){
+    UrlService(UrlDB db){
         this.db = db;
     }
-    public UrlPair handleOUrl(String oUrl){
+    UrlPair handleOUrl(String oUrl){
         UrlPair url;
         String sUrl;
         if(!ifContainsOUrl(oUrl)){
@@ -77,5 +78,11 @@ public class UrlService {
         }while(ifContainsSUrl(sUrl));
 
         return sUrl;
+    }
+
+    String getOUrl(String sUrl) {
+        UrlPair oUrl = db.findByShortUrl("shortURL.co/"+sUrl);
+        System.out.println(oUrl.getOriginalUrl());
+        return oUrl.getOriginalUrl();
     }
 }
