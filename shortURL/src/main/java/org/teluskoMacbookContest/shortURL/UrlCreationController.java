@@ -25,17 +25,22 @@ public class UrlCreationController {
     public List<UrlPair> getOriginalUrls(){
         return service.getAll();
     }
-    @PostMapping("/shorter")
+    @GetMapping("/shorter")
     public ResponseEntity<UrlPair> handleUrl(@RequestParam("url") String oUrl){
         System.out.println(oUrl);
         UrlPair url = service.handleOUrl(oUrl);
         return ResponseEntity.status(HttpStatus.CREATED).body(url);
     }
 
-    @PostMapping("/{shortUrl}")
+    @GetMapping("/{shortUrl}")
     public void getOriginalUrl(@PathVariable("shortUrl") String sUrl, HttpServletResponse httpResponse) throws IOException {
         // should redirect the page to original url
-        String output = service.getOUrl(sUrl);
-        httpResponse.sendRedirect(output);
+        try{
+            String output = service.getOUrl(sUrl);
+            httpResponse.sendRedirect(output);
+        }
+        catch(Exception e){
+            System.out.println(e.getMessage());
+        }
     }
 }
